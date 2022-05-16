@@ -1,0 +1,5 @@
+root - INFO - Testing import_data: SUCCESS
+root - INFO - The eda expected images are there :SUCCESS
+root - INFO - The expected encode columns are there :SUCCESS
+root - INFO - The split works :SUCCESS
+root - INFO - The expected models are there :SUCCESS
