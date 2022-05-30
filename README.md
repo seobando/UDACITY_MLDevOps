@@ -20,3 +20,9 @@ conda create --name udacity python = 3.8 mlflow jupyter pandas matplotlib reques
 ```console
 conda activate udacity
 ```
+
+5. To turn off the environment
+
+```console
+conda deactivate udacity
+```
