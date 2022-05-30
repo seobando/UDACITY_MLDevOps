@@ -1,5 +1,7 @@
 # UDACITY_MLDevOps
 
+This is the repository for the projects of the Udacity MLDevOps Nanodegree, belog some FAQs:
+
 ### How to install anaconda, create and activate and environment in Windows?
 
 1. Install anaconda
@@ -42,5 +44,10 @@ conda env create -f environment.yml
 ```console
 conda activate envName
 ```
+## How to create a wandb account?
+
 
 ### How to run a mlflow step?
+```console
+mlflow run . -P steps=stepName
+```
