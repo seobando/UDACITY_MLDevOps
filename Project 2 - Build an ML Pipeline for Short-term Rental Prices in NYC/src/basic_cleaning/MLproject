@@ -11,17 +11,13 @@ entry_points:
 
       output_artifact:
         description: Output dataset
-        type: string
+        type: string    
 
-      artifact_name:
-        description: wandb artifact name
-        type: string      
-
-      artifact_type:
+      output_type:
         description: wandb artifact type
         type: string
 
-      artifact_description:
+      output_description:
         description: wandb artifact description
         type: string       
 
@@ -34,4 +30,4 @@ entry_points:
         type: float
 
     command: >-
-        python run.py  --input_artifact {input_artifact}  --output_artifact {output_artifact}  --artifact_name {artifact_name}  --artifact_type {artifact_type}  --artifact_description {artifact_description}  --min_price {min_price}  --max_price {max_price}
+        python run.py  --input_artifact {input_artifact}  --output_artifact {output_artifact}  --output_type {output_type}  --output_description {output_description}  --min_price {min_price}  --max_price {max_price}

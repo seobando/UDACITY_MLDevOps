@@ -45,9 +45,9 @@ def go(args):
     df.to_csv(filename)
 
     artifact = wandb.Artifact(
-        name=args.artifact_name,
-        type=args.artifact_type,
-        description=args.artifact_description
+        args.output_artifact,
+        type=args.output_type,
+        description=args.output_description
     )
 
     artifact.add_file(filename)
@@ -79,29 +79,21 @@ if __name__ == "__main__":
 
     # Parameter 3
     parser.add_argument(
-        "--artifact_name", 
-        type=str,
-        help="wandb artifact name",
-        required=True
-    )
-
-    # Parameter 4
-    parser.add_argument(
-        "--artifact_type", 
+        "--output_type", 
         type=str,
         help="wandb artifact type",
         required=True
     )
 
-    # Parameter 5
+    # Parameter 4
     parser.add_argument(
-        "--artifact_description", 
+        "--output_description", 
         type=str,
         help="wandb artifact description",
         required=True
     )
 
-    # Parameter 6
+    # Parameter 5
     parser.add_argument(
         "--min_price", 
         type=float,
@@ -109,7 +101,7 @@ if __name__ == "__main__":
         required=True
     )
 
-    # Parameter 7
+    # Parameter 6
     parser.add_argument(
         "--max_price", 
         type=float,
