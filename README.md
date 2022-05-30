@@ -15,3 +15,8 @@ conda update -n base -c defaults conda
 ```console
 conda create --name udacity python = 3.8 mlflow jupyter pandas matplotlib requests -c conda-forge
 ```
+4. Activate environment
+
+```console
+conda activate udacity
+```
