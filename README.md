@@ -2,7 +2,7 @@
 
 This is the repository for the projects of the Udacity MLDevOps Nanodegree, belog some FAQs:
 
-### How to install anaconda, create and activate and environment in Windows?
+### How to install anaconda, create and activate a conda environment in Windows?
 
 1. Install anaconda
 [Go to](https://problemsolvingwithpython.com/01-Orientation/01.03-Installing-Anaconda-on-Windows/)
