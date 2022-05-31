@@ -75,47 +75,47 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Segregate the data between training and testing datasets")
 
     parser.add_argument(
-        "--input_artifact", 
-        type=## INSERT TYPE HERE: str, float or int,
-        help=## INSERT DESCRIPTION HERE,
+        "--input_artifact",
+        type=str,
+        help="Fully-qualified name for the input artifact",
+        required=True,
+    )
+
+    parser.add_argument(
+        "--artifact_root",
+        type=str,
+        help="Root for the names of the produced artifacts. The script will produce 2 artifacts: "
+             "{root}_train.csv and {root}_test.csv",
+        required=True,
+    )
+
+    parser.add_argument(
+        "--artifact_type", type=str, help="Type for the produced artifacts", required=True
+    )
+
+    parser.add_argument(
+        "--test_size",
+        help="Fraction of dataset or number of items to include in the test split",
+        type=float,
         required=True
     )
 
     parser.add_argument(
-        "-- artifact_root", 
-        type=## INSERT TYPE HERE: str, float or int,
-        help=## INSERT DESCRIPTION HERE,
-        required=True
+        "--random_state",
+        help="An integer number to use to init the random number generator. It ensures repeatibility in the"
+             "splitting",
+        type=int,
+        required=False,
+        default=42
     )
 
     parser.add_argument(
-        "-- artifact_type", 
-        type=## INSERT TYPE HERE: str, float or int,
-        help=## INSERT DESCRIPTION HERE,
-        required=True
+        "--stratify",
+        help="If set, it is the name of a column to use for stratified splitting",
+        type=str,
+        required=False,
+        default='null'  # unfortunately mlflow does not support well optional parameters
     )
-
-    parser.add_argument(
-        "-- test_size", 
-        type=## INSERT TYPE HERE: str, float or int,
-        help=## INSERT DESCRIPTION HERE,
-        required=True
-    )
-
-    parser.add_argument(
-        "-- random_state", 
-        type=## INSERT TYPE HERE: str, float or int,
-        help=## INSERT DESCRIPTION HERE,
-        required=True
-    )
-
-    parser.add_argument(
-        "-- stratify ", 
-        type=## INSERT TYPE HERE: str, float or int,
-        help=## INSERT DESCRIPTION HERE,
-        required=True
-    )
-
 
     args = parser.parse_args()
 

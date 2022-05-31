@@ -72,15 +72,15 @@ if __name__ == "__main__":
 
     parser.add_argument(
         "--mlflow_model", 
-        type=## INSERT TYPE HERE: str, float or int,
-        help=## INSERT DESCRIPTION HERE,
+        type=str,
+        help= "Model to evaluate",
         required=True
     )
 
     parser.add_argument(
         "-- test_dataset", 
-        type=## INSERT TYPE HERE: str, float or int,
-        help=## INSERT DESCRIPTION HERE,
+        type=str,
+        help="Test data",
         required=True
     )
 

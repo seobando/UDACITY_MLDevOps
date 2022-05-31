@@ -6,13 +6,14 @@ entry_points:
     parameters:
 
       mlflow_model:
-        description: ## ADD DESCRIPTION
+        description: Model to evaluate
         type: string
 
        test_dataset:
-        description: ## ADD DESCRIPTION
+        description: Test data
         type: string
 
 
     command: >-
-        python run.py  --mlflow_model {mlflow_model}  -- test_dataset { test_dataset} 
+        python run.py  --mlflow_model {mlflow_model}  \
+                       -- test_dataset { test_dataset} 
