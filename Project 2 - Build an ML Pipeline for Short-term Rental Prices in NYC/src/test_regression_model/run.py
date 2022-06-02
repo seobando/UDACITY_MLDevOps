@@ -1,10 +1,14 @@
-#!/usr/bin/env python
 """
-Test the regression model
+This step takes the best model, tagged with the "prod" tag, and tests it against the test dataset
 """
 import argparse
 import logging
 import wandb
+import mlflow
+import pandas as pd
+from sklearn.metrics import mean_absolute_error
+
+from wandb_utils.log_artifact import log_artifact
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
@@ -13,77 +17,55 @@ logger = logging.getLogger()
 
 def go(args):
 
-    run = wandb.init(job_type="test_regression_model")
+    run = wandb.init(job_type="test_model")
     run.config.update(args)
 
+    logger.info("Downloading artifacts")
     # Download input artifact. This will also log that this script is using this
     # particular version of the artifact
-    # artifact_local_path = run.use_artifact(args.input_artifact).file()
+    model_local_path = run.use_artifact(args.mlflow_model).download()
 
-    logger.info("Downloading and reading test artifact")
-    test_data_path = run.use_artifact(args.test_data).file()
-    df = pd.read_csv(test_data_path, low_memory=False)
+    # Download test dataset
+    test_dataset_path = run.use_artifact(args.test_dataset).file()
 
-    # Extract the target from the features
-    logger.info("Extracting target from dataframe")
-    X_test = df.copy()
-    y_test = X_test.pop("genre")
+    # Read test dataset
+    X_test = pd.read_csv(test_dataset_path)
+    y_test = X_test.pop("price")
 
-    ## YOUR CODE HERE
-    logger.info("Downloading and reading the exported model")
-    model_export_path = run.use_artifact(args.model_export).download()
-
-    ## YOUR CODE HERE
-    pipe = mlflow.sklearn.load_model(model_export_path)
-
-    ## YOUR CODE HERE
-    pred_proba = pipe.predict_proba(X_test)
+    logger.info("Loading model and performing inference on test set")
+    sk_pipe = mlflow.sklearn.load_model(model_local_path)
+    y_pred = sk_pipe.predict(X_test)
 
     logger.info("Scoring")
-    score = roc_auc_score(y_test, pred_proba, average="macro", multi_class="ovo")
+    r_squared = sk_pipe.score(X_test, y_test)
 
-    run.summary["AUC"] = score
+    mae = mean_absolute_error(y_test, y_pred)
 
-    logger.info("Computing confusion matrix")
-    fig_cm, sub_cm = plt.subplots(figsize=(10, 10))
-    plot_confusion_matrix(
-        pipe,
-        X_test,
-        y_test,
-        ax=sub_cm,
-        normalize="true",
-        values_format=".1f",
-        xticks_rotation=90,
-    )
-    fig_cm.tight_layout()
+    logger.info(f"Score: {r_squared}")
+    logger.info(f"MAE: {mae}")
 
-    run.log(
-        {
-            "confusion_matrix": wandb.Image(fig_cm)
-        }
-    )
-
+    # Log MAE and r2
+    run.summary['r2'] = r_squared
+    run.summary['mae'] = mae
 
 
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser(description="Test the regression model")
-
+    parser = argparse.ArgumentParser(description="Test the provided model against the test dataset")
 
     parser.add_argument(
-        "--mlflow_model", 
-        type=str,
-        help= "Model to evaluate",
+        "--mlflow_model",
+        type=str, 
+        help="Input MLFlow model",
         required=True
     )
 
     parser.add_argument(
-        "-- test_dataset", 
-        type=str,
-        help="Test data",
+        "--test_dataset",
+        type=str, 
+        help="Test dataset",
         required=True
     )
-
 
     args = parser.parse_args()
 

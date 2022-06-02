@@ -18,17 +18,13 @@ def go(args):
     run = wandb.init(job_type="basic_cleaning")
     run.config.update(args)
 
-    # Download input artifact. This will also log that this script is using this
-    # particular version of the artifact
-    # artifact_local_path = run.use_artifact(args.input_artifact).file()
-
     # Download input artifact.
     logger.info("Downloading artifact")
     artifact_local_path = run.use_artifact(args.input_artifact).file()
     
     # Load the data
     logger.info("Loading the data")
-    df = pd.read_parquet(artifact_local_path)
+    df  = pd.read_csv(artifact_local_path, index_col="id")
 
     # Preprocessing
     logger.info("Start pre-processing")
