@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/sebastianobando/Documents/UDACITY_MLDevOps/Project%202%20-%20Build%20an%20ML%20Pipeline%20for%20Short-term%20Rental%20Prices%20in%20NYC/mlruns/0/b0067e8a91cc45af8a857fe059d7d49a/artifacts
+end_time: 1654053714700
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: b0067e8a91cc45af8a857fe059d7d49a
+run_uuid: b0067e8a91cc45af8a857fe059d7d49a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1654053688809
+status: 4
+tags: []
+user_id: sebastianobando

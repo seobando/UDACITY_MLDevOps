@@ -1,0 +1,143 @@
+2022-05-31 22:34:20,400 INFO    MainThread:10672 [internal.py:wandb_internal():88] W&B internal server running at pid: 10672, started at: 2022-05-31 22:34:20.400239
+2022-05-31 22:34:20,402 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: check_version
+2022-05-31 22:34:20,403 INFO    WriterThread:10672 [datastore.py:open_for_write():77] open: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/run-sl7xriij.wandb
+2022-05-31 22:34:20,405 DEBUG   SenderThread:10672 [sender.py:send():179] send: header
+2022-05-31 22:34:20,405 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: check_version
+2022-05-31 22:34:20,644 DEBUG   SenderThread:10672 [sender.py:send():179] send: run
+2022-05-31 22:34:20,904 INFO    SenderThread:10672 [dir_watcher.py:__init__():168] watching files in: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files
+2022-05-31 22:34:20,904 INFO    SenderThread:10672 [sender.py:_start_run_threads():704] run started: sl7xriij with start time 1654054459
+2022-05-31 22:34:20,905 DEBUG   SenderThread:10672 [sender.py:send():179] send: summary
+2022-05-31 22:34:20,905 INFO    SenderThread:10672 [sender.py:_save_file():829] saving file wandb-summary.json with policy end
+2022-05-31 22:34:20,906 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: run_start
+2022-05-31 22:34:20,908 DEBUG   HandlerThread:10672 [meta.py:__init__():39] meta init
+2022-05-31 22:34:20,908 DEBUG   HandlerThread:10672 [meta.py:__init__():53] meta init done
+2022-05-31 22:34:20,910 DEBUG   HandlerThread:10672 [meta.py:probe():210] probe
+2022-05-31 22:34:20,917 DEBUG   HandlerThread:10672 [meta.py:_setup_git():200] setup git
+2022-05-31 22:34:20,968 DEBUG   HandlerThread:10672 [meta.py:_setup_git():207] setup git done
+2022-05-31 22:34:20,969 DEBUG   HandlerThread:10672 [meta.py:_save_pip():57] save pip
+2022-05-31 22:34:20,970 DEBUG   HandlerThread:10672 [meta.py:_save_pip():71] save pip done
+2022-05-31 22:34:20,970 DEBUG   HandlerThread:10672 [meta.py:_save_conda():78] save conda
+2022-05-31 22:34:21,916 INFO    Thread-8  :10672 [dir_watcher.py:_on_file_created():216] file/dir created: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/wandb-summary.json
+2022-05-31 22:34:21,916 INFO    Thread-8  :10672 [dir_watcher.py:_on_file_created():216] file/dir created: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/conda-environment.yaml
+2022-05-31 22:34:21,917 INFO    Thread-8  :10672 [dir_watcher.py:_on_file_created():216] file/dir created: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/requirements.txt
+2022-05-31 22:34:23,339 DEBUG   HandlerThread:10672 [meta.py:_save_conda():86] save conda done
+2022-05-31 22:34:23,339 DEBUG   HandlerThread:10672 [meta.py:probe():252] probe done
+2022-05-31 22:34:23,343 DEBUG   SenderThread:10672 [sender.py:send():179] send: files
+2022-05-31 22:34:23,343 INFO    SenderThread:10672 [sender.py:_save_file():829] saving file wandb-metadata.json with policy now
+2022-05-31 22:34:23,349 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: stop_status
+2022-05-31 22:34:23,350 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: stop_status
+2022-05-31 22:34:23,559 DEBUG   SenderThread:10672 [sender.py:send():179] send: config
+2022-05-31 22:34:23,921 INFO    Thread-8  :10672 [dir_watcher.py:_on_file_modified():229] file/dir modified: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/conda-environment.yaml
+2022-05-31 22:34:23,921 INFO    Thread-8  :10672 [dir_watcher.py:_on_file_created():216] file/dir created: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/output.log
+2022-05-31 22:34:23,922 INFO    Thread-8  :10672 [dir_watcher.py:_on_file_created():216] file/dir created: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/wandb-metadata.json
+2022-05-31 22:34:24,115 INFO    Thread-11 :10672 [upload_job.py:push():133] Uploaded file /var/folders/3l/06r2dzgs3mnf464wxb89b6y80000gn/T/tmp16yy9ca9wandb/1ouc6win-wandb-metadata.json
+2022-05-31 22:34:24,927 INFO    Thread-8  :10672 [dir_watcher.py:_on_file_modified():229] file/dir modified: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/config.yaml
+2022-05-31 22:34:28,943 INFO    Thread-8  :10672 [dir_watcher.py:_on_file_modified():229] file/dir modified: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/output.log
+2022-05-31 22:34:30,951 INFO    Thread-8  :10672 [dir_watcher.py:_on_file_modified():229] file/dir modified: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/output.log
+2022-05-31 22:34:32,560 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: poll_exit
+2022-05-31 22:34:32,560 DEBUG   SenderThread:10672 [sender.py:send():179] send: telemetry
+2022-05-31 22:34:32,561 DEBUG   SenderThread:10672 [sender.py:send():179] send: exit
+2022-05-31 22:34:32,561 INFO    SenderThread:10672 [sender.py:send_exit():287] handling exit code: 1
+2022-05-31 22:34:32,561 INFO    SenderThread:10672 [sender.py:send_exit():295] send defer
+2022-05-31 22:34:32,561 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: poll_exit
+2022-05-31 22:34:32,562 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: defer
+2022-05-31 22:34:32,562 INFO    HandlerThread:10672 [handler.py:handle_request_defer():141] handle defer: 0
+2022-05-31 22:34:32,562 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: defer
+2022-05-31 22:34:32,562 INFO    SenderThread:10672 [sender.py:send_request_defer():304] handle sender defer: 0
+2022-05-31 22:34:32,562 INFO    SenderThread:10672 [sender.py:send_request_defer():342] send defer: 1
+2022-05-31 22:34:32,563 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: defer
+2022-05-31 22:34:32,563 INFO    HandlerThread:10672 [handler.py:handle_request_defer():141] handle defer: 1
+2022-05-31 22:34:32,625 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: defer
+2022-05-31 22:34:32,625 INFO    SenderThread:10672 [sender.py:send_request_defer():304] handle sender defer: 1
+2022-05-31 22:34:32,626 INFO    SenderThread:10672 [sender.py:send_request_defer():342] send defer: 2
+2022-05-31 22:34:32,626 DEBUG   SenderThread:10672 [sender.py:send():179] send: stats
+2022-05-31 22:34:32,627 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: defer
+2022-05-31 22:34:32,627 INFO    HandlerThread:10672 [handler.py:handle_request_defer():141] handle defer: 2
+2022-05-31 22:34:32,627 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: defer
+2022-05-31 22:34:32,628 INFO    SenderThread:10672 [sender.py:send_request_defer():304] handle sender defer: 2
+2022-05-31 22:34:32,628 INFO    SenderThread:10672 [sender.py:send_request_defer():342] send defer: 3
+2022-05-31 22:34:32,628 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: defer
+2022-05-31 22:34:32,629 INFO    HandlerThread:10672 [handler.py:handle_request_defer():141] handle defer: 3
+2022-05-31 22:34:32,629 DEBUG   SenderThread:10672 [sender.py:send():179] send: summary
+2022-05-31 22:34:32,631 INFO    SenderThread:10672 [sender.py:_save_file():829] saving file wandb-summary.json with policy end
+2022-05-31 22:34:32,631 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: defer
+2022-05-31 22:34:32,631 INFO    SenderThread:10672 [sender.py:send_request_defer():304] handle sender defer: 3
+2022-05-31 22:34:32,631 INFO    SenderThread:10672 [sender.py:send_request_defer():342] send defer: 4
+2022-05-31 22:34:32,632 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: defer
+2022-05-31 22:34:32,632 INFO    HandlerThread:10672 [handler.py:handle_request_defer():141] handle defer: 4
+2022-05-31 22:34:32,633 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: defer
+2022-05-31 22:34:32,633 INFO    SenderThread:10672 [sender.py:send_request_defer():304] handle sender defer: 4
+2022-05-31 22:34:32,663 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: poll_exit
+2022-05-31 22:34:32,839 INFO    SenderThread:10672 [sender.py:send_request_defer():342] send defer: 5
+2022-05-31 22:34:32,839 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: poll_exit
+2022-05-31 22:34:32,840 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: defer
+2022-05-31 22:34:32,840 INFO    HandlerThread:10672 [handler.py:handle_request_defer():141] handle defer: 5
+2022-05-31 22:34:32,840 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: defer
+2022-05-31 22:34:32,841 INFO    SenderThread:10672 [sender.py:send_request_defer():304] handle sender defer: 5
+2022-05-31 22:34:32,841 INFO    SenderThread:10672 [dir_watcher.py:finish():282] shutting down directory watcher
+2022-05-31 22:34:32,942 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: poll_exit
+2022-05-31 22:34:32,954 INFO    SenderThread:10672 [dir_watcher.py:_on_file_modified():229] file/dir modified: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/output.log
+2022-05-31 22:34:32,954 INFO    SenderThread:10672 [dir_watcher.py:_on_file_modified():229] file/dir modified: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/config.yaml
+2022-05-31 22:34:32,955 INFO    SenderThread:10672 [dir_watcher.py:_on_file_modified():229] file/dir modified: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/wandb-summary.json
+2022-05-31 22:34:32,955 INFO    SenderThread:10672 [dir_watcher.py:finish():312] scan: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files
+2022-05-31 22:34:32,956 INFO    SenderThread:10672 [dir_watcher.py:finish():318] scan save: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/requirements.txt requirements.txt
+2022-05-31 22:34:32,956 INFO    SenderThread:10672 [dir_watcher.py:finish():318] scan save: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/output.log output.log
+2022-05-31 22:34:32,959 INFO    SenderThread:10672 [dir_watcher.py:finish():318] scan save: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/config.yaml config.yaml
+2022-05-31 22:34:32,962 INFO    SenderThread:10672 [dir_watcher.py:finish():318] scan save: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/wandb-summary.json wandb-summary.json
+2022-05-31 22:34:32,965 INFO    SenderThread:10672 [dir_watcher.py:finish():318] scan save: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/conda-environment.yaml conda-environment.yaml
+2022-05-31 22:34:32,970 INFO    SenderThread:10672 [dir_watcher.py:finish():318] scan save: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/wandb-metadata.json wandb-metadata.json
+2022-05-31 22:34:32,971 INFO    SenderThread:10672 [sender.py:send_request_defer():342] send defer: 6
+2022-05-31 22:34:32,972 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: poll_exit
+2022-05-31 22:34:32,973 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: defer
+2022-05-31 22:34:32,976 INFO    HandlerThread:10672 [handler.py:handle_request_defer():141] handle defer: 6
+2022-05-31 22:34:32,977 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: defer
+2022-05-31 22:34:32,977 INFO    SenderThread:10672 [sender.py:send_request_defer():304] handle sender defer: 6
+2022-05-31 22:34:32,977 INFO    SenderThread:10672 [file_pusher.py:finish():176] shutting down file pusher
+2022-05-31 22:34:32,977 INFO    SenderThread:10672 [sender.py:send_request_defer():342] send defer: 7
+2022-05-31 22:34:32,978 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: defer
+2022-05-31 22:34:32,979 INFO    HandlerThread:10672 [handler.py:handle_request_defer():141] handle defer: 7
+2022-05-31 22:34:32,979 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: defer
+2022-05-31 22:34:32,980 INFO    SenderThread:10672 [sender.py:send_request_defer():304] handle sender defer: 7
+2022-05-31 22:34:33,079 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: poll_exit
+2022-05-31 22:34:33,255 INFO    SenderThread:10672 [sender.py:send_request_defer():342] send defer: 8
+2022-05-31 22:34:33,255 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: poll_exit
+2022-05-31 22:34:33,256 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: defer
+2022-05-31 22:34:33,256 INFO    HandlerThread:10672 [handler.py:handle_request_defer():141] handle defer: 8
+2022-05-31 22:34:33,257 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: defer
+2022-05-31 22:34:33,257 INFO    SenderThread:10672 [sender.py:send_request_defer():304] handle sender defer: 8
+2022-05-31 22:34:33,257 INFO    SenderThread:10672 [sender.py:send_request_defer():342] send defer: 9
+2022-05-31 22:34:33,258 DEBUG   SenderThread:10672 [sender.py:send():179] send: final
+2022-05-31 22:34:33,259 DEBUG   SenderThread:10672 [sender.py:send():179] send: footer
+2022-05-31 22:34:33,259 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: defer
+2022-05-31 22:34:33,259 INFO    HandlerThread:10672 [handler.py:handle_request_defer():141] handle defer: 9
+2022-05-31 22:34:33,260 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: defer
+2022-05-31 22:34:33,260 INFO    SenderThread:10672 [sender.py:send_request_defer():304] handle sender defer: 9
+2022-05-31 22:34:33,363 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: poll_exit
+2022-05-31 22:34:33,363 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: poll_exit
+2022-05-31 22:34:33,468 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: poll_exit
+2022-05-31 22:34:33,469 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: poll_exit
+2022-05-31 22:34:33,574 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: poll_exit
+2022-05-31 22:34:33,574 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: poll_exit
+2022-05-31 22:34:33,673 INFO    Thread-13 :10672 [upload_job.py:push():133] Uploaded file /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/output.log
+2022-05-31 22:34:33,679 INFO    Thread-12 :10672 [upload_job.py:push():133] Uploaded file /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/requirements.txt
+2022-05-31 22:34:33,680 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: poll_exit
+2022-05-31 22:34:33,680 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: poll_exit
+2022-05-31 22:34:33,690 INFO    Thread-14 :10672 [upload_job.py:push():133] Uploaded file /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/config.yaml
+2022-05-31 22:34:33,696 INFO    Thread-15 :10672 [upload_job.py:push():133] Uploaded file /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/wandb-summary.json
+2022-05-31 22:34:33,699 INFO    Thread-16 :10672 [upload_job.py:push():133] Uploaded file /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/files/conda-environment.yaml
+2022-05-31 22:34:33,785 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: poll_exit
+2022-05-31 22:34:33,785 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: poll_exit
+2022-05-31 22:34:33,889 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: poll_exit
+2022-05-31 22:34:33,889 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: poll_exit
+2022-05-31 22:34:33,997 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: poll_exit
+2022-05-31 22:34:33,997 DEBUG   SenderThread:10672 [sender.py:send_request():193] send_request: poll_exit
+2022-05-31 22:34:33,997 INFO    SenderThread:10672 [file_pusher.py:join():181] waiting for file pusher
+2022-05-31 22:34:33,999 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: get_summary
+2022-05-31 22:34:34,001 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: sampled_history
+2022-05-31 22:34:34,002 DEBUG   HandlerThread:10672 [handler.py:handle_request():124] handle_request: shutdown
+2022-05-31 22:34:34,003 INFO    HandlerThread:10672 [handler.py:finish():638] shutting down handler
+2022-05-31 22:34:34,261 INFO    WriterThread:10672 [datastore.py:close():258] close: /Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/wandb/run-20220531_223419-sl7xriij/run-sl7xriij.wandb
+2022-05-31 22:34:34,999 INFO    SenderThread:10672 [sender.py:finish():933] shutting down sender
+2022-05-31 22:34:34,999 INFO    SenderThread:10672 [file_pusher.py:finish():176] shutting down file pusher
+2022-05-31 22:34:34,999 INFO    SenderThread:10672 [file_pusher.py:join():181] waiting for file pusher
+2022-05-31 22:34:35,001 INFO    MainThread:10672 [internal.py:handle_exit():78] Internal process exited

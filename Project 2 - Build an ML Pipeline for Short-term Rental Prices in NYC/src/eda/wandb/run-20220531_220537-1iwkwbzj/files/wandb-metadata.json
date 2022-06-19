@@ -1,0 +1,24 @@
+{
+    "os": "macOS-11.5.2-x86_64-i386-64bit",
+    "python": "3.9.13",
+    "heartbeatAt": "2022-06-01T03:05:38.962899",
+    "startedAt": "2022-06-01T03:05:37.357053",
+    "docker": null,
+    "cpu_count": 4,
+    "cuda": null,
+    "args": [
+        "-f",
+        "/Users/sebastianobando/Library/Jupyter/runtime/kernel-956af068-5783-4d4b-b115-9644d67195de.json"
+    ],
+    "state": "running",
+    "program": "EDA.ipynb",
+    "root": "/Users/sebastianobando/Documents/UDACITY_MLDevOps",
+    "git": {
+        "remote": "https://github.com/seobando/UDACITY_MLDevOps.git",
+        "commit": "ed0ff5eb57809edda941793cc0784c2b0ac1dc9c"
+    },
+    "email": "sebastianobandomorales@gmail.com",
+    "host": "MacBook-Air-de-Sebastian.local",
+    "username": "sebastianobando",
+    "executable": "/Users/sebastianobando/opt/anaconda3/envs/mlflow-8af91d08d13566aada991fdb38ca18c4510876b2/bin/python"
+}

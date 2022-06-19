@@ -1,0 +1,35 @@
+{
+    "os": "macOS-11.5.2-x86_64-i386-64bit",
+    "python": "3.9.13",
+    "heartbeatAt": "2022-06-01T03:21:42.364967",
+    "startedAt": "2022-06-01T03:21:40.287097",
+    "docker": null,
+    "cpu_count": 4,
+    "cuda": null,
+    "args": [
+        "--input_artifact",
+        "sample.csv:latest",
+        "--output_artifact",
+        "clean_sample.csv",
+        "--output_type",
+        "clean_sample",
+        "--output_description",
+        "Data with outliers and null values removed",
+        "--min_price",
+        "10",
+        "--max_price",
+        "350"
+    ],
+    "state": "running",
+    "program": "/Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/run.py",
+    "codePath": "Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/run.py",
+    "git": {
+        "remote": "https://github.com/seobando/UDACITY_MLDevOps.git",
+        "commit": "ed0ff5eb57809edda941793cc0784c2b0ac1dc9c"
+    },
+    "email": "sebastianobandomorales@gmail.com",
+    "root": "/Users/sebastianobando/Documents/UDACITY_MLDevOps",
+    "host": "MacBook-Air-de-Sebastian.local",
+    "username": "sebastianobando",
+    "executable": "/Users/sebastianobando/opt/anaconda3/envs/mlflow-59e43d11ad876bfa98c903fb05882c071a67cff2/bin/python"
+}

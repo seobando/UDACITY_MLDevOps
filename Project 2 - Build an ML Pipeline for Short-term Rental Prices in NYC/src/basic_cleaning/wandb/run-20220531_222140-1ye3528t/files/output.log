@@ -1,0 +1,17 @@
+
+2022-05-31 22:21:44,860 Downloading artifact
+2022-05-31 22:21:46,452 Loading the data
+Traceback (most recent call last):
+  File "/Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/run.py", line 114, in <module>
+    go(args)
+  File "/Users/sebastianobando/Documents/UDACITY_MLDevOps/Project 2 - Build an ML Pipeline for Short-term Rental Prices in NYC/src/basic_cleaning/run.py", line 31, in go
+    df = pd.read_parquet(artifact_local_path)
+  File "/Users/sebastianobando/opt/anaconda3/envs/mlflow-59e43d11ad876bfa98c903fb05882c071a67cff2/lib/python3.9/site-packages/pandas/io/parquet.py", line 458, in read_parquet
+    impl = get_engine(engine)
+  File "/Users/sebastianobando/opt/anaconda3/envs/mlflow-59e43d11ad876bfa98c903fb05882c071a67cff2/lib/python3.9/site-packages/pandas/io/parquet.py", line 36, in get_engine
+    raise ImportError(
+ImportError: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
