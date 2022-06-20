@@ -1,0 +1,16 @@
+name: pa_census_bureau
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - ipython=7.21.0
+  - notebook=6.2.0
+  - jupyterlab=3.0.10
+  - cookiecutter=1.7.2
+  - git=2.30.2
+  - pip=20.3.3
+  - pandas=1.2.3
+  - scikit-learn=1.1.1
+  - numpy=1.22.4
+  - xgboost=1.5.0
+  - joblib=1.1.0
