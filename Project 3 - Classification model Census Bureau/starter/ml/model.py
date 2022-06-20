@@ -5,40 +5,12 @@ Author: Sebastian Obando Morales
 Date: June 19, 2022
 '''
 
-import pandas as pd
-import numpy as np
-from sklearn.preprocessing import LabelEncoder
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import fbeta_score, precision_score, recall_score
+from sklearn.model_selection import KFold
 import xgboost as xgb
+from joblib import dump,load
 
-def encode_binary_variables(df,binary_variable):
-
-    le = LabelEncoder()
-    df[binary_variable] = le.fit_transform(df[binary_variable])
-
-    return df
-
-def process_data(df,binary_variables,categorical_variables):
-
-    ## Remove unrequired variables
-    df = df.drop(' fnlgt',axis=1)
-    ## Encode binary variables
-    for binary_variable in binary_variables:
-        df = encode_binary_variables(df,binary_variable)
-    ## Encode catagorical variables
-    df = pd.get_dummies(df,columns=categorical_variables)
-    
-    return df
-
-def train_val_test(df):
-
-    X_data = df.drop(' salary',axis = 1)    
-    y_data = df[' salary']
-    X_train, X_test, y_train, y_test = train_test_split(X_data, y_data, test_size= 0.3, random_state=42)
-   
-    return X_train, X_test, y_train, y_test
-
+from ml.constants import path_model
 
 def train_model(X_train, y_train):
     """
@@ -55,9 +27,14 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
+    # Train the model
     xg_cl = xgb.XGBClassifier(n_estimators=10,seed=42,use_label_encoder =False,eval_metric='logloss')
-    
-    return xg_cl.fit(X_train,y_train)
+    model = xg_cl.fit(X_train,y_train)    
+
+    # Save the model
+    dump(model, path_model) 
+
+    return model
 
 
 def compute_model_metrics(y, preds):
@@ -83,13 +60,11 @@ def compute_model_metrics(y, preds):
     return precision, recall, fbeta
 
 
-def inference(model, X):
+def inference(X):
     """ Run model inferences and return the predictions.
 
     Inputs
     ------
-    model : xgboost
-        Trained machine learning model.
     X : np.array
         Data used for prediction.
     Returns
@@ -97,6 +72,31 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
+    # Load Model
+    model = load(path_model)
+    # Apply Prediction
     preds = model.predict(X)
 
     return  preds
+
+def measure_model_performance(df, X, y, categorical_variable):
+    """ Measure the model performance using slices of the data
+  
+    Inputs
+    ------
+    df:
+
+    X : np.array
+        Data used for prediction.
+
+    y : np.array
+  
+    categorical_variable:
+
+    """
+    for categorical_value in df[categorical_variable].unique():
+        indexes = (df[categorical_variable] == categorical_value)
+        indexes_preds = inference(X[indexes])
+        precision, recall, fbeta = compute_model_metrics(y[indexes], indexes_preds)
+        
+    
