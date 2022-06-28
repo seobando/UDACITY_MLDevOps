@@ -20,9 +20,9 @@ Data is coming from https://archive.ics.uci.edu/ml/datasets/census+income ; eval
 
 ## Metrics
 
-Precision: 0.7895174708818635
-Recall: 0.7895174708818635
-Fbeta: 0.7895174708818635
+- Precision: 0.7895174708818635
+- Recall: 0.7895174708818635
+- Fbeta: 0.7895174708818635
 
 ## Ethical Considerations
 
