@@ -19,12 +19,6 @@ import starter.ml.model
 
 import logging
 
-logging.basicConfig(
-    filename='./logs/pred.log',
-    level=logging.INFO,
-    filemode='w',
-    format='%(name)s - %(levelname)s - %(message)s')
-
 class TaggedItem(BaseModel):
     age: int
     workclass: str
@@ -63,8 +57,7 @@ async def inference(item: TaggedItem):
         item.capital_gain,
         item.capital_loss,
         item.hours_per_week,
-        item.native_country,
-        0
+        item.native_country
     ]])
 
     data_input = pd.DataFrame(data = input_array, columns =[
@@ -81,8 +74,7 @@ async def inference(item: TaggedItem):
         "capital-gain", 
         "capital-loss",         
         "hours_per_week",
-        "native-country",
-        "sales"
+        "native-country"
     ])
 
     encoder = load(path_encoder)
@@ -94,6 +86,5 @@ async def inference(item: TaggedItem):
 
     pred = starter.ml.model.inference(X_input)
     y = lb.inverse_transform(pred)[0]
-    logging.info("Prediction: {prediction}".format(prediction = y))
    
     return {"prediction" : y}
