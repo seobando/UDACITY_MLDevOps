@@ -7,11 +7,12 @@ Date: June 20, 2022
 
 # Script to train machine learning model.
 from sklearn.model_selection import train_test_split
+from joblib import dump,load
 
 # Add the necessary imports for the starter code.
 from ml.data import load_data,process_data
 from ml.model import train_model, compute_model_metrics, inference, measure_model_performance
-from ml.constants import path_name,categorical_variables
+from ml.constants import path_name,path_encoder,path_lb,categorical_variables
 
 # Add code to load in the data.
 data = load_data(path_name)
@@ -26,6 +27,14 @@ cat_features = categorical_variables
 X_train, y_train, encoder, lb = process_data(
     train, categorical_features=cat_features, label="salary", training=True
 )
+
+# Save encoder and lb
+dump(encoder, path_encoder) 
+dump(lb, path_lb) 
+
+# Load encoder and lb
+encoder = load(path_encoder)
+lb = load(path_lb)
 
 # Proces the test data with the process_data function.
 X_test, y_test, encoder, lb = process_data(

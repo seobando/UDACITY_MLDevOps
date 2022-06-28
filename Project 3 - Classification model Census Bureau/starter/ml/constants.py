@@ -9,6 +9,12 @@ path_name = "../data/census.csv"
 
 path_model = "../model/xgboost_model.joblib"
 
+path_encoder = "../model/encoder.joblib"
+
+path_lb = "../model/lb.joblib"
+
+path_slices = "../logs/slice_output.txt"
+
 categorical_variables = [
     "workclass",
     "education",

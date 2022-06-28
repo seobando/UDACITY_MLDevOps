@@ -1,8 +1,8 @@
 import setuptools
 
 setuptools.setup(
-    name="starter",
+    name="mldevops-heroku-fastapi",
     version="0.0.0",
-    description="Starter code.",
-    author="Student",
+    description="Project 3 of Udacity Machine Learning DevOps Engineer Nanodegree",
+    author="Sebastian Obando Morales",
 )

@@ -10,7 +10,7 @@ from sklearn.model_selection import KFold
 import xgboost as xgb
 from joblib import dump,load
 
-from ml.constants import path_model
+from ml.constants import path_model,path_slices
 
 def train_model(X_train, y_train):
     """
@@ -94,9 +94,18 @@ def measure_model_performance(df, X, y, categorical_variable):
     categorical_variable:
 
     """
+    slice_values = []
+
     for categorical_value in df[categorical_variable].unique():
         indexes = (df[categorical_variable] == categorical_value)
         indexes_preds = inference(X[indexes])
         precision, recall, fbeta = compute_model_metrics(y[indexes], indexes_preds)
+
+        line = "[%s->%s] Precision: %s Recall: %s FBeta: %s" % (categorical_variable,categorical_value, precision, recall, fbeta)
+        slice_values.append(line)
+
+    with open(path_slices, 'w') as out:
+        for slice_value in slice_values:
+            out.write(slice_value + '\n')        
         
     
