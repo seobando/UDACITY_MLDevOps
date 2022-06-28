@@ -47,6 +47,9 @@ train_model(X_train, y_train)
 # Score the model
 preds = inference(X_test)
 precision, recall, fbeta = compute_model_metrics(y_test, preds)
+print("Precision:",precision)
+print("Recall:",precision)
+print("Fbeta:",precision)
 
 # Outputs the performance of the model on slices of the data
 categorical_variable = "occupation"
