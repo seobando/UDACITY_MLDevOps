@@ -10,10 +10,10 @@ import os
 from sklearn.model_selection import train_test_split
 from ml.data import load_data, process_data
 from ml.model import train_model, inference, compute_model_metrics
-from ml.constants import path_name,categorical_variables
+from ml.constants import path_name,categorical_variables,path_model_logs,path_model_folder
 
 logging.basicConfig(
-    filename='../logs/model.log',
+    filename=path_model_logs,
     level=logging.INFO,
     filemode='w',
     format='%(name)s - %(levelname)s - %(message)s')
@@ -22,11 +22,11 @@ def test_train_model(X_train, y_train):
     '''
     test train_models
     '''
-    expected_model = ['xgboost_model.joblib']
+    expected_model = ['model.joblib']
     
     try:
         train_model(X_train, y_train)
-        existing_file = os.listdir("../model/")
+        existing_file = os.listdir(path_model_folder)
         assert set(expected_model).issubset(existing_file)
         logging.info("The expected models are there :SUCCESS")
     except AssertionError as err:

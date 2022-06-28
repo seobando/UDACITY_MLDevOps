@@ -1,8 +1,8 @@
 '''
 Main module to run the pipeline
 
-Author: Sebastian Obando Morales
-Date: June 19, 2022
+Author: Sebastian Obasampndo Morales
+Date: June 27, 2022
 '''
 
 from typing import Union, List
@@ -15,6 +15,15 @@ from joblib import load
 
 from starter.ml.data import process_data
 from starter.ml.constants import categorical_variables,path_encoder,path_lb
+import starter.ml.model
+
+import logging
+
+logging.basicConfig(
+    filename='./logs/pred.log',
+    level=logging.INFO,
+    filemode='w',
+    format='%(name)s - %(levelname)s - %(message)s')
 
 class TaggedItem(BaseModel):
     age: int
@@ -45,13 +54,17 @@ async def inference(item: TaggedItem):
         item.workclass,
         item.fnlgt,
         item.education,
+        item.education_num,
         item.marital_status,
         item.occupation,
         item.relationship,
         item.race,
         item.sex,
+        item.capital_gain,
+        item.capital_loss,
         item.hours_per_week,
-        item.native_country
+        item.native_country,
+        0
     ]])
 
     data_input = pd.DataFrame(data = input_array, columns =[
@@ -59,24 +72,28 @@ async def inference(item: TaggedItem):
         "workclass",
         "fnlgt",
         "education",
+        "education-num", 
         "marital-status",
         "occupation",
         "relationship",
         "race",
         "sex",
+        "capital-gain", 
+        "capital-loss",         
         "hours_per_week",
-        "native-country"
+        "native-country",
+        "sales"
     ])
 
-    encoder = load("./model/encoder.joblib")
-    lb = load("./model/lb.joblib")
+    encoder = load(path_encoder)
+    lb = load(path_lb)
 
     X_input, _, _, _ = process_data(
         data_input, categorical_features=categorical_variables, label=None, training=False, encoder=encoder, lb=lb
     )
 
-    preds = inference(X_input)
-
-    print(preds)
-
-    return {"prediction" : preds[0]}
+    pred = starter.ml.model.inference(X_input)
+    y = lb.inverse_transform(pred)[0]
+    logging.info("Prediction: {prediction}".format(prediction = y))
+   
+    return {"prediction" : y}
