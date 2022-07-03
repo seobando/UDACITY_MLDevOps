@@ -23,9 +23,25 @@ dataset_csv_path = os.path.join(config['output_folder_path'])
 def score_model():
     #calculate a confusion matrix using the test data and the deployed model
     #write the confusion matrix to the workspace
+    
+    test_data = pd.read_csv(test_data_path/"testdata.csv", low_memory=False)
+
+    preds = model_predictions(test_data)
+    matrix = metrics.confusion_matrix(test_data['exited'], preds)   
+
+    ax = sns.heatmap(matrix, annot=True, cmap='YlGnBu')
+
+    ax.set_title('Confusion Matrix')
+    ax.set_xlabel('Predicted Values')
+    ax.set_ylabel('Real Values ')
+
+    ax.xaxis.set_ticklabels(['False','True'])
+    ax.yaxis.set_ticklabels(['False','True'])
 
 
+    plt = plot_confusion_matrix(matrix)
 
+    plt.savefig(model_path/'confusionmatrix.png')
 
 
 if __name__ == '__main__':
