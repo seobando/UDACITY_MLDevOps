@@ -18,7 +18,8 @@ data = {
     "native_country": "United-States"
     } 
 
-response = requests.post(url='http://127.0.0.1:8000/', json=data, headers={"Content-Type": "application/json; charset=utf-8"})
+#response = requests.post(url='http://127.0.0.1:8000/', json=data, headers={"Content-Type": "application/json; charset=utf-8"})
+response = requests.post(url='http://app-udacity.herokuapp.com/', json=data, headers={"Content-Type": "application/json; charset=utf-8"})
 
 print(response.status_code)
 print(response.reason)

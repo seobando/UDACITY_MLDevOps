@@ -6,7 +6,7 @@ Date: June 20, 2022
 '''
 import os
 
-is_development = 1
+is_development = 0
 
 if is_development:
 

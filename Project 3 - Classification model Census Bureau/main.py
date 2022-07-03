@@ -19,6 +19,8 @@ import starter.ml.model
 
 import logging
 
+
+
 class TaggedItem(BaseModel):
     age: int
     workclass: str

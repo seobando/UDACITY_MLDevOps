@@ -9,7 +9,7 @@ from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.ensemble import GradientBoostingClassifier
 from joblib import dump,load
 
-from ml.constants import path_model,path_slices
+from starter.ml.constants import path_model,path_slices
 
 def train_model(X_train, y_train):
     """
