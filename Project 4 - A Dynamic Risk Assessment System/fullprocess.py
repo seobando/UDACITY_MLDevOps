@@ -8,6 +8,8 @@ import reporting
 import json
 import os
 
+from ingestion import merge_multiple_dataframe
+
 with open("config.json", "r") as f:
     config = json.load(f)
 
@@ -36,7 +38,7 @@ if not new_files:
 
 ##################Checking for model drift
 #check whether the score from the deployed model is different from the score from the model that uses the newest ingested data
-ingestion.merge_multiple_dataframe()
+merge_multiple_dataframe()
 scoring.score_model(production=True)
 
 with open(os.path.join(prod_deployment_path, "latestscore.txt"), "r") as report_file:
