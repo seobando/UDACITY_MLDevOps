@@ -2,9 +2,6 @@ from flask import Flask, session, jsonify, request
 import pandas as pd
 import numpy as np
 import pickle
-import create_prediction_model
-import diagnosis 
-import predict_exited_from_saved_model
 import json
 import os
 
@@ -54,4 +51,4 @@ def diagnostics():
     return str("execution_time:" + et + "\nmissing_data;"+ md + "\noutdated_packages:" + op)
 
 if __name__ == "__main__":    
-    app.run(host='0.0.0.0', port=8000, debug=True, threaded=True)
+    app.run(host='127.0.0.1', port=8000, debug=True, threaded=True)
