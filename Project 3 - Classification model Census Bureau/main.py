@@ -2,7 +2,7 @@
 Main module to run the pipeline
 
 Author: Sebastian Obasampndo Morales
-Date: June 27, 2022
+Date: July 04, 2022
 '''
 
 from typing import Union, List
@@ -16,9 +16,6 @@ from joblib import load
 from starter.ml.data import process_data
 from starter.ml.constants import categorical_variables,path_encoder,path_lb
 import starter.ml.model
-
-import logging
-
 
 
 class TaggedItem(BaseModel):
@@ -44,16 +41,16 @@ class TaggedItem(BaseModel):
                 "workclass": "State-gov",
                 "fnlgt": 77516,
                 "education": "Bachelors",
-                "education-num": 13,
-                "marital-status": "Never-married",
+                "education_num": 13,
+                "marital_status": "Never-married",
                 "occupation": "Adm-clerical",
                 "relationship": "Not-in-family",
                 "race": "White",
                 "sex": "Male",
-                "capital-gain": 2174,
-                "capital-loss": 0,
-                "hours-per-week": 0,
-                "native-country": "United-States",
+                "capital_gain": 2174,
+                "capital_loss": 0,
+                "hours_per_week": 0,
+                "native_country": "United-States",
             }
         }
 

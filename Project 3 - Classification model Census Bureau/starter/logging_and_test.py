@@ -2,15 +2,16 @@
 Test module
 
 Author: Sebastian Obando Morales
-Date: June 20, 2022
+Date: July 04, 2022
 '''
 
 import logging
 import os
+import pytest
 from sklearn.model_selection import train_test_split
-from ml.data import load_data, process_data
-from ml.model import train_model, inference, compute_model_metrics
-from ml.constants import path_name,categorical_variables,path_model_logs,path_model_folder
+from starter.ml.data import load_data, process_data
+from starter.ml.model import train_model, inference, compute_model_metrics
+from starter.ml.constants import path_name,categorical_variables,path_model_logs,path_model_folder
 
 logging.basicConfig(
     filename=path_model_logs,
@@ -18,10 +19,33 @@ logging.basicConfig(
     filemode='w',
     format='%(name)s - %(levelname)s - %(message)s')
 
-def test_train_model(X_train, y_train):
+@pytest.fixture
+def data():
+    """
+    Get required data
+    """
+
+    df = load_data(path_name)
+
+    train, test = train_test_split(df, test_size=0.20)
+
+    X_train, y_train, encoder, lb = process_data(
+    train, categorical_features=categorical_variables, label="salary", training=True
+    )
+
+    X_test, y_test, encoder, lb = process_data(
+        test, categorical_features=categorical_variables, label="salary", training=False, encoder=encoder, lb=lb
+    )
+
+    return X_train, y_train, X_test, y_test
+
+def test_train_model(data):
     '''
     test train_models
     '''
+
+    X_train, y_train, X_test, y_test = data
+
     expected_model = ['model.joblib']
     
     try:
@@ -33,24 +57,30 @@ def test_train_model(X_train, y_train):
         logging.error("The expected models are not there :ERROR")
         raise err
 
-def test_inference(X):
+@pytest.fixture
+def test_inference(data):
     """
     test inference
     """
+
+    X_train, y_train, X_test, y_test = data
+
     try:
-        preds = inference(X)
+        preds = inference(X_test)
         assert len(preds.tolist()) > 0
         logging.info("The prediction is done :SUCCESS")
     except AssertionError as err:
         logging.error("The prediction is not done :ERROR")
         raise err       
 
-    return preds
+    return y_test,preds
 
-def test_compute_model_metrics(y, preds):
+def test_compute_model_metrics(test_inference):
     """
     test compute model metrics
     """
+    y,preds = test_inference
+
     try:
         precision, recall, fbeta = compute_model_metrics(y, preds)
         assert precision != 0
@@ -60,35 +90,4 @@ def test_compute_model_metrics(y, preds):
     except AssertionError as err:
         logging.error("The metrics must be checked :ERROR")
         raise err  
-
-if __name__ == "__main__":
-
-    print("Phase 1: Load the Data\n")
-    print("\n-------------------------------------------------------")
-    data = load_data(path_name)
-    print("Phase 2: Split the Data\n")
-    print("\n-------------------------------------------------------")
-    train, test = train_test_split(data, test_size=0.20)
-    print("Phase 3: Process the training set\n")
-    print("\n-------------------------------------------------------")
-    # Proces the train data with the process_data function.
-    X_train, y_train, encoder, lb = process_data(
-        train, categorical_features=categorical_variables, label="salary", training=True
-    )
-    print("Phase 4: Process the testing set\n")
-    print("\n-------------------------------------------------------")
-    # Proces the test data with the process_data function.
-    X_test, y_test, encoder, lb = process_data(
-        train, categorical_features=categorical_variables, label="salary", training=False, encoder=encoder, lb=lb
-    )
-    print("Phase 5: Train the model\n")
-    print("\n-------------------------------------------------------")
-    test_train_model(X_train, y_train)
-    print("Phase 6: Classify\n")
-    print("\n-------------------------------------------------------")
-    preds = test_inference(X_test)
-    print("Phase 7: Test the model\n")
-    print("\n-------------------------------------------------------")
-    test_compute_model_metrics(y_test, preds)
-
 

@@ -10,9 +10,9 @@ from sklearn.model_selection import train_test_split
 from joblib import dump,load
 
 # Add the necessary imports for the starter code.
-from ml.data import load_data,process_data
-from ml.model import train_model, compute_model_metrics, inference, measure_model_performance
-from ml.constants import path_name,path_encoder,path_lb,categorical_variables
+from starter.ml.data import load_data,process_data
+from starter.ml.model import train_model, compute_model_metrics, inference, measure_model_performance
+from starter.ml.constants import path_name,path_encoder,path_lb,categorical_variables
 
 # Add code to load in the data.
 data = load_data(path_name)
