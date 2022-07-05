@@ -16,39 +16,38 @@ with open('config.json','r') as f:
     config = json.load(f) 
 
 dataset_csv_path = os.path.join(config['output_folder_path']) 
-
 prediction_model = None
 
-
 #######################Prediction Endpoint
-@app.route("/prediction", methods=['POST','OPTIONS'])
+@app.route("/prediction", methods=['GET','OPTIONS'])
 def predict():        
     #call the prediction function you created in Step 3
-    dataset_path = request.json.get('dataset_path')
-    y_pred, _ = model_predictions(dataset_path)
-    return str(y_pred)
+    dataset_path =  os.getcwd() + '/' + request.args.get("file_path")
+    preds = model_predictions(dataset_path)
+    return jsonify({"prediction": preds.tolist()})
 
 #######################Scoring Endpoint
 @app.route("/scoring", methods=['GET','OPTIONS'])
 def scoring():        
     #check the score of the deployed model
-    score = score_model()
-    return str(score)
+    return jsonify({"f1_score": score_model()})
 
 #######################Summary Statistics Endpoint
 @app.route("/summarystats", methods=['GET','OPTIONS'])
 def summarystats():        
     #check means, medians, and modes for each column
-    summary = dataframe_summary()
-    return str(summary)
+    dataset_path = os.getcwd() + '/' + request.args.get("file_path")
+    return  jsonify({"stats": dataframe_summary(dataset_path)})
 
 #######################Diagnostics Endpoint
 @app.route("/diagnostics", methods=['GET','OPTIONS'])
 def diagnostics():        
-    et = execution_time()
-    md = missing_data()
-    op = outdated_packages_list()     
-    return str("execution_time:" + et + "\nmissing_data;"+ md + "\noutdated_packages:" + op)
+    dataset_path =  os.getcwd() + '/' + request.args.get("file_path")
+    return jsonify({
+        "timing": execution_time(),
+        "missing_data": missing_data(dataset_path),
+        "dependency_check": outdated_packages_list(),
+    })
 
 if __name__ == "__main__":    
     app.run(host='127.0.0.1', port=8000, debug=True, threaded=True)
