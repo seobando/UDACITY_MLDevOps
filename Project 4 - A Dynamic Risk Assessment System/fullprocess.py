@@ -38,9 +38,6 @@ if not new_files:
 
 ##################Checking for model drift
 #check whether the score from the deployed model is different from the score from the model that uses the newest ingested data
-merge_multiple_dataframe()
-scoring.score_model(production=True)
-
 with open(os.path.join(prod_deployment_path, "latestscore.txt"), "r") as report_file:
     old_f1 = float(report_file.read())
 
@@ -52,22 +49,20 @@ with open(os.path.join(model_path, "latestscore.txt"), "r") as report_file:
 if new_f1 >= old_f1:
     print("Actual F1 (%s) is better/equal than old F1 (%s), no drift detected -> exiting" % (new_f1, old_f1))    
     exit(0)
+else:
+    print("Actual F1 (%s) is WORSE than old F1 (%s), drift detected -> training model" % (new_f1, old_f1)) 
 
-print("Actual F1 (%s) is WORSE than old F1 (%s), drift detected -> training model" % (new_f1, old_f1)) 
-training.train_model()
-
+##################Re-training
+os.system('python training.py')
+os.system('python scoring.py')
 
 ##################Re-deployment
 #if you found evidence for model drift, re-run the deployment.py script
-deployment.store_model_into_pickle()
+os.system('python deployment.py')
 ##################Diagnostics and reporting
 #run diagnostics.py and reporting.py for the re-deployed model
-diagnostics.model_predictions(None)
-diagnostics.execution_time()
-diagnostics.dataframe_summary()
-diagnostics.missing_data()
-diagnostics.outdated_packages_list()
-reporting.score_model()
+os.system('python apicalls.py')
+os.system('python reporting.py')
 
 
 
