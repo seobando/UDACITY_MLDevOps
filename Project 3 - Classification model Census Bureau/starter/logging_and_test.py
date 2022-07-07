@@ -2,7 +2,7 @@
 Test module
 
 Author: Sebastian Obando Morales
-Date: July 04, 2022
+Date: July 07, 2022
 '''
 
 import logging
@@ -57,7 +57,6 @@ def test_train_model(data):
         logging.error("The expected models are not there :ERROR")
         raise err
 
-@pytest.fixture
 def test_inference(data):
     """
     test inference
@@ -73,13 +72,23 @@ def test_inference(data):
         logging.error("The prediction is not done :ERROR")
         raise err       
 
-    return y_test,preds
+## Last required modifications ##
+@pytest.fixture
+def label_values():
+    dummy_label_values = [0,1,0,0,0,1,0,1,0,1]
+    return dummy_label_values
 
-def test_compute_model_metrics(test_inference):
+@pytest.fixture
+def pred_values():
+    dummy_pred_values = [0,0,0,1,0,1,1,1,0,1]
+    return dummy_pred_values    
+
+def test_compute_model_metrics(label_values,pred_values):
     """
     test compute model metrics
     """
-    y,preds = test_inference
+    y = label_values
+    preds = pred_values
 
     try:
         precision, recall, fbeta = compute_model_metrics(y, preds)
